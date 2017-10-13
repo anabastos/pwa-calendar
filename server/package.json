@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "./node_modules/.bin/nodemon index.js"
+    "dev": "./node_modules/.bin/nodemon index.js --exec babel-node --presets es2015"
   },
   "author": "Ana Luiza Bastos",
   "dependencies": {

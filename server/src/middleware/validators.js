@@ -1,5 +1,5 @@
 import User from '../models/user'
-import config from '../../config'
+import config from '../../bin/config'
 import { getToken } from '../utils/auth'
 import { verify } from 'jsonwebtoken'
 

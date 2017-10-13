@@ -9,6 +9,7 @@ import mount from 'koa-mount'
 import serve from 'koa-static'
 import cors from 'koa2-cors'
 
+import config from './config'
 import { errorMiddleware } from '../src/middleware'
 
 // import { cronJob } from '../src/services/cron';
@@ -16,7 +17,6 @@ import { errorMiddleware } from '../src/middleware'
 // cronJob();
 
 const app = new Koa()
-const config = require('config').default
 
 app.keys = [config.session]
 
