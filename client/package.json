@@ -11,6 +11,8 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "moment": "^2.19.1",
     "vue": "^2.3.3",
     "vue-fullcalendar": "^1.0.9",
     "vue-material": "^0.8.1",

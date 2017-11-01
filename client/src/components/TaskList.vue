@@ -15,7 +15,7 @@
         <md-table-header>
           <md-table-row>
             <md-table-head md-sort-by="task">Task</md-table-head>
-            <md-table-head md-sort-by="type" width="100px">Type</md-table-head>
+            <md-table-head md-sort-by="priority" width="100px">Priority</md-table-head>
             <md-table-head>
               <md-icon>message</md-icon>
               <span>Comments</span>
@@ -25,7 +25,7 @@
 
         <md-table-body>
           <md-table-row v-for="(row, rowIndex) in list" :key="rowIndex" :md-item="row" md-selection>
-            <md-table-cell v-for="(column, columnIndex) in row" :key="columnIndex" :md-numeric="columnIndex !== 'task' && columnIndex !== 'comment' && columnIndex !== 'type'">
+            <md-table-cell v-for="(column, columnIndex) in row" :key="columnIndex" :md-numeric="columnIndex !== 'task' && columnIndex !== 'comment' && columnIndex !== 'priority'">
               <span v-if="columnIndex === 'comment'">{{ column }}</span>
 
               <md-button class="md-icon-button" v-if="columnIndex === 'comment'">
@@ -33,17 +33,17 @@
               </md-button>
 
               <md-select
-                placeholder="Type"
-                :name="'type' + columnIndex"
-                :id="'type' + columnIndex"
-                v-model="nutrition[rowIndex].type"
-                v-if="columnIndex === 'type'">
+                placeholder="Priority"
+                :name="'priority' + columnIndex"
+                :id="'priority' + columnIndex"
+                v-model="nutrition[rowIndex].priority"
+                v-if="columnIndex === 'priority'">
                 <md-option value="high">High</md-option>
                 <md-option value="medium">Medium</md-option>
                 <md-option value="low">Low</md-option>
               </md-select>
 
-              <span v-if="columnIndex !== 'type' && columnIndex !== 'comment'">{{ column }}</span>
+              <span v-if="columnIndex !== 'priority' && columnIndex !== 'comment'">{{ column }}</span>
             </md-table-cell>
           </md-table-row>
         </md-table-body>

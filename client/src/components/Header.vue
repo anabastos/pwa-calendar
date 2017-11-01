@@ -15,8 +15,15 @@
         </div>
       </md-toolbar>
       <md-list>
-        <md-list-item><router-link to="/">Calendar</router-link></md-list-item>
-        <md-list-item><router-link to="/tasks">Tasks</router-link></md-list-item>      
+        <md-list-item><router-link to="/">
+            <md-icon>bookmark</md-icon>
+            Calendar
+        </router-link></md-list-item>
+
+        <md-list-item><router-link to="/tasks">
+            <md-icon>note</md-icon>
+            Tasks
+        </router-link></md-list-item>
       </md-list>
     </md-sidenav>
   </div>
