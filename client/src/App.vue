@@ -1,53 +1,61 @@
 <template>
-  <div id="app">
-    <header>
-      <span>PWA-Calendar</span>
-    </header>
-    <main>
-      <router-view></router-view>
-    </main>
+
+  <div class="wrapper" id="app">
+    <IGHeader/>
+
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+import IGHeader from './components/Header';
+import IGArticle from './components/Article';
+
 export default {
   name: 'app',
+  components: {
+    IGHeader,
+    IGArticle,
+    IGFooter: () => import('./components/Footer'),
+  },
+  data() {
+    return {
+      msg: 'Welcome to Your Vue.js App',
+    };
+  },
 };
 </script>
 
 <style>
-body {
+* {
   margin: 0;
+  padding: 0;
 }
 
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+html,
+body,
+.wrapper {
+  width: 100%;
+  height: 100%;
 }
 
-main {
-  text-align: center;
-  margin-top: 40px;
+.nav {
+  position: absolute;
+  background-color: #fff;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 4px;
 }
 
-header {
-  margin: 0;
-  height: 56px;
-  padding: 0 16px 0 24px;
-  background-color: #ffa500;
-  color: #ffffff;
+.nav ul {
+  list-style: none
 }
 
-header span {
-  display: block;
-  position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: .02em;
-  font-weight: 400;
-  box-sizing: border-box;
-  padding-top: 16px;
+.nav ul li a {
+  text-decoration: none;
+  color: #444;
+}
+.nav ul li a:hover {
+  text-decoration: underline;
 }
 </style>

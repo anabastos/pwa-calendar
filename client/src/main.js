@@ -1,15 +1,34 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+
 import Vue from 'vue';
+import VueRouter from 'vue-router';
+import VueMaterial from 'vue-material';
+import 'vue-material/dist/vue-material.css';
+
 import App from './App';
-import router from './router';
 
-Vue.config.productionTip = false;
+const Calendar = () => import('./pages/Calendar');
+const Tasks = () => import('./pages/Tasks');
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App },
+const dependencies = [VueRouter, VueMaterial];
+dependencies.map(dep => Vue.use(dep));
+
+const router = new VueRouter({
+  mode: 'history',
+  routes: [
+    { path: '/calendar', component: Calendar },
+    { path: '/tasks', component: Tasks },
+    { path: '*', component: Calendar },
+  ],
 });
+
+Vue.material.registerTheme('default', {
+  primary: 'deep-orange',
+  accent: 'blue-grey',
+  warn: 'blue-grey',
+  background: 'white',
+});
+
+new Vue({
+  router,
+  render: h => h(App),
+}).$mount('#app');
