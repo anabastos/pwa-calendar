@@ -9,18 +9,16 @@
 
 <script>
 import IGHeader from './components/Header';
-import IGArticle from './components/Article';
 
 export default {
   name: 'app',
   components: {
     IGHeader,
-    IGArticle,
     IGFooter: () => import('./components/Footer'),
   },
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      msg: 'Bem vindo ao seu calendário',
     };
   },
 };
@@ -31,7 +29,6 @@ export default {
   margin: 0;
   padding: 0;
 }
-
 html,
 body,
 .wrapper {

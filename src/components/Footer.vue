@@ -1,5 +1,5 @@
 <template lang="html">
-  <h1>Footer</h1>
+  <p>Jaques & Ana</p>
 </template>
 
 <script>

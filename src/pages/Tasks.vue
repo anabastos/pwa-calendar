@@ -1,34 +1,27 @@
 <template lang="html">
   <div class="tasks">
-    <!-- <TaskInput/> -->
     <TaskList/>
 
-    <md-button class="md-fab md-fab-bottom-right md-warn">
-      <md-icon>add</md-icon>
-    </md-button>
+    <router-link to="/tasks/new">
+      <md-button class="md-fab md-fab-bottom-right md-warn">
+        <md-icon>add</md-icon>
+      </md-button>
+    </router-link>
   </div>
 
 </template>
 
 <script>
-import TaskInput from '../components/TaskInput';
 import TaskList from '../components/TaskList';
 
 export default {
-  name: 'tasks',
+  name: 'Tasks',
   components: {
-    TaskInput,
     TaskList,
   },
 };
 </script>
 
 <style lang="css">
-.tasks {
-}
 
-h1 {
-  color: #fff;
-  font-family: sans-serif;
-}
 </style>

@@ -9,7 +9,10 @@ import 'vue-material/dist/vue-material.css';
 import App from './App';
 
 const Calendar = () => import('./pages/Calendar');
+const NewCalendar = () => import('./pages/NewCalendar');
 const Tasks = () => import('./pages/Tasks');
+const NewTask = () => import('./pages/NewTask');
+
 
 Vue.component('full-calendar', FullCalendar);
 const dependencies = [VueRouter, VueMaterial];
@@ -19,7 +22,9 @@ const router = new VueRouter({
   mode: 'history',
   routes: [
     { path: '/calendar', component: Calendar },
+    { path: '/calendar/new', component: NewCalendar },
     { path: '/tasks', component: Tasks },
+    { path: '/tasks/new', component: NewTask },
     { path: '*', component: Calendar },
   ],
 });
