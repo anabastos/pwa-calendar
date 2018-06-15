@@ -3,7 +3,9 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueMaterial from 'vue-material';
 import FullCalendar from 'vue-fullcalendar';
+import Datetime from 'vue-datetime';
 
+import 'vue-datetime/dist/vue-datetime.css';
 import 'vue-material/dist/vue-material.css';
 
 import App from './App';
@@ -15,7 +17,7 @@ const NewTask = () => import('./pages/NewTask');
 
 
 Vue.component('full-calendar', FullCalendar);
-const dependencies = [VueRouter, VueMaterial];
+const dependencies = [VueRouter, VueMaterial, Datetime];
 dependencies.map(dep => Vue.use(dep));
 
 const router = new VueRouter({

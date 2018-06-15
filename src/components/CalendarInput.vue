@@ -10,18 +10,12 @@
         <label>Local</label>
         <md-input type="text" v-model="event.location" maxlength="20"></md-input>
       </md-input-container>
-      <md-input-container>
-        <label>Hora do alarme</label>
-        <md-input type="text" v-model="event.alarm" maxlength="20"></md-input>
-      </md-input-container>
-      <md-input-container>
-        <label>Horário de inicio</label>
-        <md-input type="text" v-model="event.start" maxlength="20"></md-input>
-      </md-input-container>
-      <md-input-container>
-        <label>Horário de fim</label>
-        <md-input type="text" v-model="event.end" maxlength="20"></md-input>
-      </md-input-container>
+      <label class="date-label">Horario do alarme</label>
+      <datetime type="datetime" :value="event.start" v-model="event.alarm"></datetime>
+      <label class="date-label">Horario de inicio</label>
+      <datetime type="datetime" :value="event.start" v-model="event.start"></datetime>
+      <label class="date-label">Horario de inicio</label>
+      <datetime type="datetime" :value="event.start" v-model="event.end"></datetime>
       <md-switch v-model="event.allDay" id="switch" name="switch" class="md-warn">O dia todo?</md-switch>
     </div>
     <md-button class="button-send md-raised md-dense" type="button" name="button" @click="addEvent">
@@ -30,7 +24,7 @@
 </template>
 
 <script>
-// import moment from 'moment';
+import moment from 'moment';
 import { prop } from 'ramda';
 
 import EventBus from './EventBus';
@@ -50,9 +44,9 @@ export default {
       const transformations = {
         name: format(event.name),
         location: format(event.location),
-        alarm: format(event.alarm),
-        start: format(event.start),
-        end: format(event.end),
+        alarm: moment(event.alarm),
+        start: moment(event.start),
+        end: moment(event.end),
         allDay: format(event.allDay),
       };
 
@@ -71,7 +65,11 @@ export default {
   },
   data() {
     return {
-      event: {},
+      event: {
+        start: '2018-05-17T00:00:00.000Z',
+        end: '2018-05-17T00:00:00.000Z',
+        alarm: '2018-05-17T00:00:00.000Z',
+      },
       events: [],
     };
   },
@@ -100,6 +98,16 @@ export default {
   color: #A9A9A9;
   margin: 5%;
   font-family: sans-serif;
+}
+
+.date-label {
+  font-size: 17px;
+  color: rgb(0, 0, 0, 0.54);
+}
+
+.vdatetime-input {
+  font-size: 17px;
+  margin: 3%;
 }
 
 </style>
